@@ -1,6 +1,6 @@
 {
   "name": "vue-body-scroll-lock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -23,7 +23,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "main": "dist/vue-body-scroll-lock.js",
+  "main": "dist/vue-body-scroll-lock.common.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/17axah/vue-body-scroll-lock"
