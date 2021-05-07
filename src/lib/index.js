@@ -1,9 +1,9 @@
 import * as scrollLock from 'scroll-lock';
-import directive from './directive';
+import scrollLockDirective from './directive';
 
-export const VScrollLock = directive;
+export const directive = scrollLockDirective;
 export const ScrollLock = scrollLock;
 
 export default function (Vue) {
-  Vue.directive('scroll-lock', directive);
+  Vue.directive('scroll-lock', scrollLockDirective);
 }
