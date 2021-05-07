@@ -27,11 +27,11 @@ Vue.use(VueBodyScrollLock);
 
 ```js
 <script>
-import { VScrollLock } from 'vue-body-scroll-lock';
+import { directive } from 'vue-body-scroll-lock';
 
 export default {
     directives: {
-        VScrollLock,
+        scrollLock: directive,
     },
     data() {
         return {
