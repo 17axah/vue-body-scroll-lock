@@ -1,24 +1,51 @@
 # vue-body-scroll-lock
 
-## Project setup
-```
-npm install
+Vue plugin to disable scrolling page.
+Built on top of [https://www.npmjs.com/package/scroll-lock](https://www.npmjs.com/package/scroll-lock)
+For better use, check out the [scroll-lock](https://www.npmjs.com/package/scroll-lock) documentation
+
+## Installation
+
+```bash
+$ npm i vue-body-scroll-lock
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Usage (global)
+
+```js
+import Vue from 'vue';
+import VueBodyScrollLock from 'vue-body-scroll-lock';
+
+Vue.use(VueBodyScrollLock);
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+## Usage (local)
+
+```html
+<div v-scroll-lock="value"></div>
 ```
 
-### Lints and fixes files
-```
-npm run lint
+```js
+<script>
+import { VScrollLock } from 'vue-body-scroll-lock';
+
+export default {
+    directives: {
+        VScrollLock,
+    },
+    data() {
+        return {
+            value: false
+        }
+    }
+};
+</script>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The module also exports the scroll-lock library:
+
+```js
+<script>
+import { ScrollLock } from 'vue-body-scroll-lock';
+</script>
+```
