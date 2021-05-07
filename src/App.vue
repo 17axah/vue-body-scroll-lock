@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div style="padding: 20px">
+    <button v-scroll-lock="lock" @click="lock = !lock" class="button">
+      {{ lock ? 'unlock' : 'lock' }}
+    </button>
+    <div v-for="(item, index) in 50" :key="index">
+      <strong style="font-size: 20px">{{ index }}</strong>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      Esse ad adipisci, quidem ut possimus expedita placeat sit dolore qui dolores.
+      Ad dignissimos nisi vel beatae maiores optio consequuntur! Amet, ad.
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      lock: false,
+    };
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0
+}
+
+.button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
 }
 </style>
