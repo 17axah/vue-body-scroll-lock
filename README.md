@@ -1,4 +1,4 @@
-# Vue pro modal
+# vue-body-scroll-lock
 
 Vue plugin to disable scrolling page.
 Built on top of [https://www.npmjs.com/package/scroll-lock](https://www.npmjs.com/package/scroll-lock)
@@ -24,6 +24,7 @@ Vue.use(VueBodyScrollLock);
 <div v-scroll-lock="value"></div>
 ```
 
+```js
 <script>
 import { VScrollLock } from 'vue-body-scroll-lock';
 
