@@ -1,23 +1,35 @@
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import scrollLock from './scroll-lock';
+
+function getValue(value) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function getOptions(value) {
+  return Array.isArray(value) && value[1] ? value[1] : {};
+}
 
 export default {
-  inserted(el, { value }) {
-    const [val, options] = Array.isArray(value) ? value : [value];
+  inserted(el, binding) {
+    const value = getValue(binding.value);
+    const options = getOptions(binding.value);
 
-    if (val) {
-      disableBodyScroll(el, options);
+    if (value) {
+      scrollLock.lock(el, options);
     }
   },
-  componentUpdated(el, { value }) {
-    const [val, options] = Array.isArray(value) ? value : [value];
+  componentUpdated(el, binding) {
+    const value = getValue(binding.value);
+    const options = getOptions(binding.value);
 
-    if (val) {
-      disableBodyScroll(el, options);
+    if (value) {
+      scrollLock.lock(el, options);
     } else {
-      enableBodyScroll(el);
+      scrollLock.unlock(el, options);
     }
   },
-  unbind(el) {
-    enableBodyScroll(el);
+  unbind(el, binding) {
+    const options = getOptions(binding.value);
+
+    scrollLock.unlock(el, options);
   },
 };
