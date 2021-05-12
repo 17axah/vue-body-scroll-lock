@@ -1,35 +1,19 @@
 import scrollLock from './scroll-lock';
 
-function getValue(value) {
-  return Array.isArray(value) ? value[0] : value;
-}
-
-function getOptions(value) {
-  return Array.isArray(value) && value[1] ? value[1] : {};
-}
-
 export default {
-  inserted(el, binding) {
-    const value = getValue(binding.value);
-    const options = getOptions(binding.value);
-
+  inserted(el, { value, arg }) {
     if (value) {
-      scrollLock.lock(el, options);
+      scrollLock.lock(el, arg);
     }
   },
-  componentUpdated(el, binding) {
-    const value = getValue(binding.value);
-    const options = getOptions(binding.value);
-
+  componentUpdated(el, { value, arg }) {
     if (value) {
-      scrollLock.lock(el, options);
+      scrollLock.lock(el, arg);
     } else {
-      scrollLock.unlock(el, options);
+      scrollLock.unlock(el);
     }
   },
-  unbind(el, binding) {
-    const options = getOptions(binding.value);
-
-    scrollLock.unlock(el, options);
+  unbind(el) {
+    scrollLock.unlock(el);
   },
 };

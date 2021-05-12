@@ -5,7 +5,11 @@
       <div>header</div>
     </header>
     <div style="padding: 20px">
-      <button v-scroll-lock="[lock, { gap: 'padding' }]" @click="lock = !lock" class="button">
+      <button
+        v-scroll-lock:padding="lock"
+        @click="lock = !lock"
+        class="button"
+      >
         {{ lock ? 'unlock' : 'lock' }}
       </button>
       <div v-for="(item, index) in 50" :key="index">
@@ -14,6 +18,17 @@
         Esse ad adipisci, quidem ut possimus expedita placeat sit dolore qui dolores.
         Ad dignissimos nisi vel beatae maiores optio consequuntur! Amet, ad.
       </div>
+    </div>
+    <div class="text" data-scroll-lock-scrollable>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Libero in fugiat hic illo dicta voluptates earum provident esse quisquam a,
+      pariatur est, nam placeat nemo tempore repudiandae voluptatum ab repellendus.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Libero in fugiat hic illo dicta voluptates earum provident esse quisquam a,
+      pariatur est, nam placeat nemo tempore repudiandae voluptatum ab repellendus.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Libero in fugiat hic illo dicta voluptates earum provident esse quisquam a,
+      pariatur est, nam placeat nemo tempore repudiandae voluptatum ab repellendus.
     </div>
   </div>
 </template>
@@ -59,5 +74,15 @@ body {
   z-index: 50;
   background-color: #fff;
   border-bottom: 1px solid blue;
+}
+
+.text {
+  position: fixed;
+  bottom: 50%;
+  left: 0;
+  height: 90px;
+  width: 300px;
+  overflow: auto;
+  background: forestgreen;
 }
 </style>

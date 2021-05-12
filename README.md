@@ -23,7 +23,10 @@ Vue.use(VueBodyScrollLock);
 
 ```html
 <div v-scroll-lock="value"></div>
-<div v-scroll-lock="[value, options]"></div>
+
+<!-- with gap method: -->
+<div v-scroll-lock:padding="value"></div>
+<div v-scroll-lock:margin="value"></div>
 ```
 
 ```js
@@ -43,11 +46,5 @@ export default {
 </script>
 ```
 
-## options
-
-### gap
-Possible values: 'padding', 'margin', 'width', 'max-width', 'none'
-
-### el
-Selector or HTMLElement
-Scrollable element
+You can also use attributes from the [scroll-lock](https://www.npmjs.com/package/scroll-lock) module:
+***data-scroll-lock-fill-gap***, ***data-scroll-lock-scrollable***, ***data-scroll-lock-lockable***
